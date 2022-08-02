@@ -1,7 +1,12 @@
 import React from 'react'
+interface StoreProps {
+  children?:React.ReactNode
+}
 
-export default function store () {
+const store = ({ children }:StoreProps) => {
   return (
     <div></div>
   )
 }
+
+export default store
