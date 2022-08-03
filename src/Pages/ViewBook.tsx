@@ -1,20 +1,18 @@
 import { useAppContext } from '../Store/store'
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
 export default function ViewBook () {
-  const [editing, setEditing] = useState<boolean>(false)
   const store = useAppContext()
   const { IDbook } = useParams()
   const item = store.getItem(IDbook!)
+  const navigate = useNavigate()
+
+  const handleClicEdit = () => {
+    navigate('/edit/' + IDbook)
+  }
 
   return (
     <>
-        {editing
-          ? (
-          <h1>editing</h1>
-            )
-          : (
           <div>
 
           <p>Titulo: {item.title}</p>
@@ -24,9 +22,8 @@ export default function ViewBook () {
           <p>{item.completed ? 'Libro leido ✅' : 'Leyendo...📖'}</p>
           <p>Opinion: {item.review}</p>
         </div>
-            )
-      }
 
+    <button onClick={handleClicEdit}>Edit Book</button>
     </>
   )
 }

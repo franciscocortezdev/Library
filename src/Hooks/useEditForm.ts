@@ -3,13 +3,13 @@ import { NewBookInfo } from '../Types'
 import { useNavigate } from 'react-router'
 import { useAppContext } from '../Store/store'
 
-export default function useFormBook () {
-  const [title, setTitle] = useState<string>('')
-  const [author, setAuthor] = useState<string>('')
-  const [cover, setCover] = useState<string>('')
-  const [intro, setIntro] = useState<string>('')
-  const [completed, setCompleted] = useState<boolean>(false)
-  const [review, setReview] = useState<string>('')
+export default function useEditForm ({ id, title, author, cover, intro, completed, review }:NewBookInfo) {
+  const [tit, setTitle] = useState<string>(title)
+  const [aut, setAuthor] = useState<string>(author)
+  const [cov, setCover] = useState<string>(cover)
+  const [int, setIntro] = useState<string>(intro)
+  const [comp, setCompleted] = useState<boolean>(completed)
+  const [rev, setReview] = useState<string>(review)
   const navigate = useNavigate()
   const store = useAppContext()
 
@@ -53,19 +53,19 @@ export default function useFormBook () {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newBook:NewBookInfo = {
-      id: crypto.randomUUID(),
-      title,
-      author,
-      cover,
-      intro,
-      completed,
-      review
+      id,
+      title: tit,
+      author: aut,
+      cover: cov,
+      intro: int,
+      completed: comp,
+      review: rev
     }
-    store.createItem(newBook)
-    navigate('/')
+    store.updateItem(newBook)
+    navigate('/view/' + id)
   }
 
   return {
-    states: { title, author, cover, intro, completed, review, handleChange, handleCover, handleSubmit }
+    states: { title: tit, author: aut, cover: cov, intro: int, completed: comp, review: rev, handleChange, handleCover, handleSubmit }
   }
 }

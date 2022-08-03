@@ -5,6 +5,7 @@ import NewBook from './Pages/NewBook'
 import ViewBook from './Pages/ViewBook'
 import Store from './Store/store'
 import Menu from './Components/Menu'
+import EditBook from './Pages/EditBook'
 
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
         <Route path="/" element={<Home/>} />
         <Route path="/create" element={<NewBook/>} />
         <Route path="/view/:IDbook" element={<ViewBook/>} />
+        <Route path="/edit/:IDbook" element={<EditBook/>} />
       </Routes>
       </BrowserRouter>
     </Store>

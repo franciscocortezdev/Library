@@ -36,8 +36,11 @@ const Store = ({ children }:StoreProps) => {
 
   const updateItem = (item:NewBookInfo) => {
     const index = items.findIndex((i) => i.id === item.id)
+
     const temp = [...items]
     temp[index] = { ...item }
+
+    setItems(temp)
   }
 
   return (

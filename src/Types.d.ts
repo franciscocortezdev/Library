@@ -20,3 +20,17 @@ export interface ContextType {
   getItem: (id:string) => NewBookInfo
   updateItem: (item:NewBookInfo) => void
 };
+
+export interface proposForm {
+  dt:{
+  title: string
+  author: string
+  cover: string
+  intro: string
+  completed: boolean
+  review: string
+  handleChange: (e: React.FormEvent<HTMLInputElement>) => void
+  handleCover: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+ }
+}
