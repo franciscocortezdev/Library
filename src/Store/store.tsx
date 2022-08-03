@@ -1,12 +1,22 @@
 import { createContext, useContext, useState } from 'react'
-import { NewBookInfo, StoreProps } from '../Types'
+import { NewBookInfo, StoreProps, ContextType } from '../Types'
 import { INITIAL_STATE } from './Data'
 
-const AppContext = createContext({
-  items: [] as NewBookInfo[],
-  createItem: (item:NewBookInfo) => {},
-  getItem: (id:string) => {},
-  updateItem: (item:NewBookInfo) => {}
+const AppContext = createContext<ContextType>({
+  items: [],
+  createItem: (item) => {},
+  getItem: (id) => {
+    return {
+      id: '',
+      title: '',
+      author: '',
+      cover: '',
+      intro: '',
+      completed: false,
+      review: ''
+    }
+  },
+  updateItem: (item) => {}
 })
 
 const Store = ({ children }:StoreProps) => {
@@ -21,7 +31,7 @@ const Store = ({ children }:StoreProps) => {
 
   const getItem = (id:string) => {
     const item = items.find((item) => item.id === id)
-    return item
+    return item!
   }
 
   const updateItem = (item:NewBookInfo) => {
