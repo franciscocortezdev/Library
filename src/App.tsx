@@ -1,16 +1,13 @@
 import './App.css'
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import NewBook from './Pages/NewBook'
 import ViewBook from './Pages/ViewBook'
+import Store from './Store/store'
 
 function App () {
   return (
-    <div>
+    <Store>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -18,7 +15,7 @@ function App () {
         <Route path="/view/:IDbook" element={<ViewBook/>} />
       </Routes>
       </BrowserRouter>
-    </div>
+    </Store>
   )
 }
 
