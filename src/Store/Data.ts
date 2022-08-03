@@ -2,7 +2,7 @@ import { NewBookInfo } from '../Types'
 
 export const INITIAL_STATE:NewBookInfo[] = [
   {
-    id: 'Atomic Habits',
+    id: 'AtomicHabits',
     title: 'Atomic Habits',
     author: 'James Clear',
     cover: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL.jpg',
@@ -11,7 +11,7 @@ export const INITIAL_STATE:NewBookInfo[] = [
     review: 'personal growth'
   },
   {
-    id: 'El Libro Negro de las Horas',
+    id: 'ElLibroNegrodelasHoras',
     title: 'El Libro Negro de las Horas',
     author: 'Eva García Sáenz',
     cover: 'https://images-na.ssl-images-amazon.com/images/I/81PFtvKlQTL.jpg',
@@ -20,7 +20,7 @@ export const INITIAL_STATE:NewBookInfo[] = [
     review: 'Libro de Terror'
   },
   {
-    id: 'Adiós, pequeño',
+    id: 'Adióspequeño',
     title: 'Adiós, pequeño',
     author: 'HUERTA, MÁXIMO',
     cover: 'https://images-na.ssl-images-amazon.com/images/I/81XW54g4I9L.jpg',
@@ -29,7 +29,7 @@ export const INITIAL_STATE:NewBookInfo[] = [
     review: 'Premio de Novela Fernando Lara 2022'
   },
   {
-    id: 'El Principito',
+    id: 'ElPrincipito',
     title: 'El Principito',
     author: 'SAINT-EXUPÉRY, ANTOINE DE',
     cover: 'https://fraternidadrosacruzantigua.org/wp-content/uploads/2021/06/El-principito.jpg',

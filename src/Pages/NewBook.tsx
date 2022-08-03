@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAppContext } from '../Store/store'
 import { NewBookInfo } from '../Types'
+import { useNavigate } from 'react-router-dom'
 
 export default function NewBook () {
   const [title, setTitle] = useState<string>('')
@@ -9,7 +10,7 @@ export default function NewBook () {
   const [intro, setIntro] = useState<string>('')
   const [completed, setCompleted] = useState<boolean>(false)
   const [review, setReview] = useState<string>('')
-
+  const navigate = useNavigate()
   const store = useAppContext()
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -61,6 +62,7 @@ export default function NewBook () {
       review
     }
     store.createItem(newBook)
+    navigate('/')
   }
   return (
     <div>
