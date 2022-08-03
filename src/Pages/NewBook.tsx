@@ -1,69 +1,8 @@
-import React, { useState } from 'react'
-import { useAppContext } from '../Store/store'
-import { NewBookInfo } from '../Types'
-import { useNavigate } from 'react-router-dom'
-
+import useFormBook from '../Hooks/useFormBook'
 export default function NewBook () {
-  const [title, setTitle] = useState<string>('')
-  const [author, setAuthor] = useState<string>('')
-  const [cover, setCover] = useState<string>('')
-  const [intro, setIntro] = useState<string>('')
-  const [completed, setCompleted] = useState<boolean>(false)
-  const [review, setReview] = useState<string>('')
-  const navigate = useNavigate()
-  const store = useAppContext()
+  const { title, author, cover, intro, completed, review } = useFormBook().states
+  const { handleChange, handleCover, handleSubmit } = useFormBook().actions
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const name = e.currentTarget.name
-    const value = e.currentTarget.value
-    switch (name) {
-      case 'title':
-        setTitle(value)
-        break
-      case 'author':
-        setAuthor(value)
-        break
-      case 'intro':
-        setIntro(value)
-        break
-      case 'completed':
-        setCompleted(e.currentTarget.checked)
-        break
-      case 'review':
-        setReview(value)
-        break
-    }
-  }
-
-  const handleCover = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const element = e.currentTarget
-    if (element.files) {
-      const file = element.files[0]
-
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
-      reader.onloadend = () => {
-        if (reader.result) {
-          setCover(reader.result.toString())
-        }
-      }
-    }
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const newBook:NewBookInfo = {
-      id: crypto.randomUUID(),
-      title,
-      author,
-      cover,
-      intro,
-      completed,
-      review
-    }
-    store.createItem(newBook)
-    navigate('/')
-  }
   return (
     <div>
 
@@ -110,7 +49,6 @@ export default function NewBook () {
           <input type="checkbox"
           name='completed'
           onChange={handleChange}
-          // value={completed}
           checked={completed}
           />
 
