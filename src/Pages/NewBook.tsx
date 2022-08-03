@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useAppContext } from '../Store/store'
+import { Link } from 'react-router-dom'
 
 type NewBookInfo = {
   id: string
@@ -17,6 +19,8 @@ export default function NewBook () {
   const [intro, setIntro] = useState<string>('')
   const [completed, setCompleted] = useState<boolean>(false)
   const [review, setReview] = useState<string>('')
+
+  const store = useAppContext()
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const name = e.currentTarget.name
@@ -66,10 +70,11 @@ export default function NewBook () {
       completed,
       review
     }
-    console.log(newBook)
+    store.createItem(newBook)
   }
   return (
     <div>
+      <Link to="/">Home</Link>
       <form onSubmit={handleSubmit}>
         <div>
           <div>Title</div>
