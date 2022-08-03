@@ -1,19 +1,6 @@
 import { createContext, useContext, useState } from 'react'
-
-type NewBookInfo = {
-  id: string
-  title: string,
-  author: string,
-  cover: string,
-  intro: string,
-  completed: boolean,
-  review: string
-}
-
-interface StoreProps {
-  children?: JSX.Element | JSX.Element[]
-
-}
+import { NewBookInfo, StoreProps } from '../Types'
+import { INITIAL_STATE } from './Data'
 
 const AppContext = createContext({
   items: [] as NewBookInfo[],
@@ -21,8 +8,9 @@ const AppContext = createContext({
   getItem: (id:string) => {},
   updateItem: (item:NewBookInfo) => {}
 })
+
 const Store = ({ children }:StoreProps) => {
-  const [items, setItems] = useState<Array<NewBookInfo>>([])
+  const [items, setItems] = useState<Array<NewBookInfo>>(INITIAL_STATE)
 
   const createItem = (item:NewBookInfo) => {
     const temp:NewBookInfo[] = [...items]

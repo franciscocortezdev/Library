@@ -4,11 +4,14 @@ import Home from './Pages/Home'
 import NewBook from './Pages/NewBook'
 import ViewBook from './Pages/ViewBook'
 import Store from './Store/store'
+import Menu from './Components/Menu'
 
 function App () {
   return (
     <Store>
+
       <BrowserRouter>
+      <Menu/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/create" element={<NewBook/>} />

@@ -1,16 +1,6 @@
 import React, { useState } from 'react'
 import { useAppContext } from '../Store/store'
-import { Link } from 'react-router-dom'
-
-type NewBookInfo = {
-  id: string
-  title: string,
-  author: string,
-  cover: string,
-  intro: string,
-  completed: boolean,
-  review: string
-}
+import { NewBookInfo } from '../Types'
 
 export default function NewBook () {
   const [title, setTitle] = useState<string>('')
@@ -74,7 +64,7 @@ export default function NewBook () {
   }
   return (
     <div>
-      <Link to="/">Home</Link>
+
       <form onSubmit={handleSubmit}>
         <div>
           <div>Title</div>
