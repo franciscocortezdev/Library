@@ -29,7 +29,7 @@ export default function Menu () {
         Home
       </LinkStyled>
       <LinkStyled to="/create">
-        Add Book
+        New book
       </LinkStyled>
     </Nav>
   )

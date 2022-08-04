@@ -11,9 +11,10 @@ const ContainerBooks = styled.div`
 `
 const BookView = styled(Link)`
   text-decoration: none;
-  color: #1C3879;
+  color: #fff;
   width: 500px;
-  background-color: #EAE3D2;
+  background-color: transparent;
+  border: 2px solid #fff;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -34,8 +35,9 @@ const BookPincture = styled.img`
 const Title = styled.p`
   font-size: 30px;
   font-weight: 600;
-  border-bottom: 4px solid #607EAA;
+  border-bottom: 2px solid #fff;
   margin-bottom: 15px;
+  line-height: 1.5;
 `
 const Author = styled.p`
   font-size: 20px;
