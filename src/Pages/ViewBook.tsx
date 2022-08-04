@@ -14,7 +14,6 @@ export default function ViewBook () {
   return (
     <>
           <div>
-
           <p>Titulo: {item.title}</p>
           <p>Autor: {item.author}</p>
           <img src={item.cover} alt={item.title} width={200}/>
