@@ -1,6 +1,5 @@
 import { useAppContext } from '../Store/store'
 import { useParams, useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 
 export default function ViewBook () {
   const store = useAppContext()
@@ -14,7 +13,7 @@ export default function ViewBook () {
 
   return (
     <>
-          <div>
+        <div>
           <p>Titulo: {item.title}</p>
           <p>Autor: {item.author}</p>
           <img src={item.cover} alt={item.title} width={200}/>
