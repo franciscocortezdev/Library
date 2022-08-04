@@ -1,5 +1,6 @@
 import { useAppContext } from '../Store/store'
 import { useParams, useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
 export default function ViewBook () {
   const store = useAppContext()
