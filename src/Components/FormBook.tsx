@@ -20,6 +20,12 @@ const Image = styled.img`
   height: 450px;
   border-radius: 8px;
 `
+const ImagePlaceHolder = styled.div`
+  width: 300px;
+  height: 450px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+`
 const LabelUpload = styled.label`
   font-size: 20px;
   font-weight: 600;
@@ -188,7 +194,7 @@ export default function FormBook (props:proposForm) {
 
         </div>
           <ContainerPicture>
-            {cover && <Image src={cover} alt="cover" />}
+            {cover ? <Image src={cover} alt="cover"/> : <ImagePlaceHolder></ImagePlaceHolder>}
             <div>
               <LabelUpload htmlFor="cover">Upload Picture</LabelUpload>
               <InputImage type="file"
