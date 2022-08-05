@@ -29,7 +29,7 @@ export interface proposForm {
   intro: string
   completed: boolean
   review: string
-  handleChange: (e: React.FormEvent<HTMLInputElement>) => void
+  handleChange: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   handleCover: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
  }

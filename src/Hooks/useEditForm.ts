@@ -13,7 +13,7 @@ export default function useEditForm ({ id, title, author, cover, intro, complete
   const navigate = useNavigate()
   const store = useAppContext()
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = e.currentTarget.name
     const value = e.currentTarget.value
     switch (name) {
@@ -26,9 +26,11 @@ export default function useEditForm ({ id, title, author, cover, intro, complete
       case 'intro':
         setIntro(value)
         break
-      case 'completed':
-        setCompleted(e.currentTarget.checked)
+      case 'completed': {
+        const element = e.target as HTMLInputElement
+        setCompleted(element.checked)
         break
+      }
       case 'review':
         setReview(value)
         break
