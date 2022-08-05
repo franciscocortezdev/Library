@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NewBookInfo } from '../Types'
 import { useNavigate } from 'react-router'
-import { useAppContext } from '../Store/store'
+import { useAppContext } from '../Context/store'
 
 export default function useEditForm ({ id, title, author, cover, intro, completed, review }:NewBookInfo) {
   const [tit, setTitle] = useState<string>(title)

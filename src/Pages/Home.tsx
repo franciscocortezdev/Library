@@ -1,4 +1,4 @@
-import { useAppContext } from '../Store/store'
+import { useAppContext } from '../Context/store'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import NewBook from './Pages/NewBook'
 import ViewBook from './Pages/ViewBook'
-import Store from './Store/store'
+import Store from './Context/store'
 import Menu from './Components/Menu'
 import EditBook from './Pages/EditBook'
 

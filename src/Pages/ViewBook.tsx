@@ -1,4 +1,4 @@
-import { useAppContext } from '../Store/store'
+import { useAppContext } from '../Context/store'
 import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
