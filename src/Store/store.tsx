@@ -24,7 +24,7 @@ const Store = ({ children }:StoreProps) => {
 
   const createItem = (item:NewBookInfo) => {
     const temp:NewBookInfo[] = [...items]
-    temp.push(item)
+    temp.unshift(item)
 
     setItems(temp)
   }
